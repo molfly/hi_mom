@@ -11,3 +11,10 @@
 
 ## Установка библиотеки __vk_api__ для Python 3
 `python3 -m pip install vk_api`
+
+***
+
+За основу взят пример из https://github.com/python273/vk_api и поста на Хабре - [Пишем чат бота для ВКонтакте на python с помощью longpoll](https://habr.com/post/428507/)
+
+
+0 6 0 0 0 python3 /home/pi/src/vk/send.py

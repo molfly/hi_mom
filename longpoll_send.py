@@ -1,18 +1,10 @@
 # -*- coding: utf-8 -*-
 import vk_api
-#import requests
-#import datetime
 from vk_api.longpoll import VkLongPoll, VkEventType
-#from datetime import datetime
 
 def main():
-    """ Пример использования longpoll
 
-        https://vk.com/dev/using_longpoll
-        https://vk.com/dev/using_longpoll_2
-    """
-
-    login, password = 'Логин или номер телефона', 'пароль'
+    login, password = 'Логин или номер телефона', 'Пароль'
     vk_session = vk_api.VkApi(login, password)
 
     try:
@@ -26,19 +18,14 @@ def main():
     for event in longpoll.listen():
 
         if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
-   #Слушаем longpoll, если пришло сообщение то:
-             vars = ['Первая фраза', 'вторая фраза', 'Третья фраза']		
-             if ( str(event.text).lower() ) in vars:
+        #Слушаем longpoll, если пришло сообщение то:
+             if event.text == 'Можно с пробелом' or event.text == 'Привет' or event.text == 'привет':
                  if event.from_user: #Если написали в ЛС
-                    #now = datetime.now()
                     vk.messages.send( #Отправляем сообщение
                          user_id=event.user_id, 
-                         # random_id - доступен начиная с версии 5.45, обязателен к использованию
-                         random_id=event.random_id,
-                         message='Ответ'
+                         random_id=event.random_id, # random_id - доступен начиная с версии 5.45, обязателен к использованию
+                         message='Текст'
                          )
-
-
 
 if __name__ == '__main__':
     main()
